@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>廉政信息管理系统</title>
+		<!-- Tell the browser to be responsive to screen width -->
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<!-- Bootstrap 3.3.6 -->
+		<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../dist/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../dist/css/wechat.css">
+		<link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+	</head>
+
+	<body class="hold-transition skin-green-light sidebar-mini">
+		<div class="wrapper">
+
+			<header class="main-header">
+				<!-- Logo -->
+				<a href="../index.html" class="logo" style="width:auto">
+					<span class="">廉政信息管理系统</span>
+				</a>
+				<!-- Header Navbar: style can be found in header.less -->
+				<nav class="navbar navbar-static-top" style="z-index: -1;">
+					<!-- Sidebar toggle button-->
+					<div class="navbar-custom-menu">
+						<ul class="nav navbar-nav">
+							<!-- Messages: style can be found in dropdown.less-->
+							<!-- Notifications: style can be found in dropdown.less -->
+							<!-- Tasks: style can be found in dropdown.less -->
+							<!-- User Account: style can be found in dropdown.less -->
+							<li class="dropdown notifications-menu">
+				            <a href="warnContent.html" class="dropdown-toggle" data-toggle="dropdown">
+				              <i class="fa iconfont icon-naoling1"></i>
+				              <span class="label label-danger">1</span>
+				            </a>
+			            </li>
+							<li class="dropdown user user-menu">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<span class="hidden-xs">系统管理员</span>
+								</a>
+							</li>
+							<!-- Control Sidebar Toggle Button -->
+						</ul>
+					</div>
+				</nav>
+			</header>
+			<!-- Left side column. contains the logo and sidebar -->
+			<aside class="main-sidebar">
+				<!-- sidebar: style can be found in sidebar.less -->
+				<section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <li class="treeview">
+                            <a href="../index.html">
+                                <i class="fa iconfont icon-zhuantishixin"></i>
+                                <span>廉政专题管理</span>
+                                <span class="label label-primary pull-right"></span>
+                            </a>
+                        </li>
+                        <li class="treeview current-view">
+                            <a href="personManage.html">
+                                <i class="fa iconfont icon-xinzeng"></i> <span>个人廉政信息管理</span>
+                                <small class="label pull-right bg-green"></small>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="queryInfoList.html">
+                                <i class="fa iconfont icon-quankujiansuo"></i> <span>廉政信息检索</span>
+                                <!-- <i class="fa fa-angle-left pull-right"></i> -->
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="dataImport.html">
+                                <i class="fa iconfont icon-shujuluru"></i> <span>廉政教育预警数据导入</span>
+                                <!-- <i class="fa fa-angle-left pull-right"></i> -->
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="ruleSet.html">
+                                <i class="fa iconfont icon-set"></i> <span>廉政教育预警规则设置</span>
+                                <!-- <i class="fa fa-angle-left pull-right"></i> -->
+                            </a>
+                            
+                        </li>
+                        <li class="treeview">
+                            <a href="#" class="toggle-menu">
+                                <i class="fa iconfont icon-xitongshezhi"></i> <span>系统设置</span>
+                                <i class="iconfont state icon-jiantou1 pull-right" style="font-size: 12px;"></i> 
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+					            <li><a href="agencyManage.html"><i class="fa iconfont icon-suyaniconchanpinleibufenzuodaohangbufen87"></i>部门管理</a></li>
+					            <li><a href="memberManage.html"><i class="fa iconfont icon-renyuanguanli"></i>人员管理</a></li>
+					            <li><a href="roleManage.html"><i class="fa iconfont icon-jiaoseguanli"></i>角色管理</a></li>
+					        </ul>
+                        </li>
+                    </ul>
+                </section>
+				<!-- /.sidebar -->
+			</aside>
+
+			<!-- Content Wrapper. Contains page content -->
+			<div class="content-wrapper">
+				<div class="container">
+					<div class="row">
+						<span id="add-new-item" class="query-bt-green">
+							新增信息
+						</span>
+						&nbsp;&nbsp;
+						<span id="batch-delete-bt" class="query-bt-green">
+							批量删除
+						</span>
+					</div>
+					<div class="excel-wrap">
+						<table class="table table-hover">
+							<tr>
+								<th style="display: none"><input id="all-select-bt" type="checkbox"> 全选</th>
+								<th>序号</th>
+								<th>信息名称</th>
+								<th>录入日期</th>
+								<th>录入人</th>
+								<th>部门</th>
+								<th>操作</th>	
+							</tr>
+							<tr>
+								<td style="display: none"><input class="item-checkbox" type="checkbox"></td>
+								<td>1</td>
+								<td>XX自查表</td>
+								<td>2016-09-09</td>
+								<td>张三</td>
+								<td>法规科</td>
+								<td>
+									<a href="javascript:;">修改</a>
+									<a href="javascript:;">删除</a>
+								</td>
+							</tr>
+							<tr>
+								<td style="display: none"><input class="item-checkbox" type="checkbox"></td>
+								<td>2</td>
+								<td>XX自查表</td>
+								<td>2016-09-09</td>
+								<td>张三</td>
+								<td>法规科</td>
+								<td>
+									<a href="javascript:;">修改</a>
+									<a href="javascript:;">删除</a>
+								</td>
+							</tr>
+							<tr>
+								<td style="display: none"><input class="item-checkbox" type="checkbox"></td>
+								<td>3</td>
+								<td>XX自查表</td>
+								<td>2016-09-09</td>
+								<td>张三</td>
+								<td>法规科</td>
+								<td>
+									<a href="javascript:;">修改</a>
+									<a href="javascript:;">删除</a>
+								</td>
+							</tr>
+							<tr>
+								<td style="display: none"><input class="item-checkbox" type="checkbox"></td>
+								<td>4</td>
+								<td>XX自查表</td>
+								<td>2016-09-09</td>
+								<td>张三</td>
+								<td>法规科</td>
+								<td>
+									<a href="javascript:;">修改</a>
+									<a href="javascript:;">删除</a>
+								</td>
+							</tr>
+							<tr>
+								<td style="display: none"><input class="item-checkbox" type="checkbox"></td>
+								<td>5</td>
+								<td>XX自查表</td>
+								<td>2016-09-09</td>
+								<td>张三</td>
+								<td>法规科</td>
+								<td>
+									<a href="javascript:;">修改</a>
+									<a href="javascript:;">删除</a>
+								</td>
+							</tr>
+							<tr>
+								<td style="display: none"><input class="item-checkbox" type="checkbox"></td>
+								<td>6</td>
+								<td>XX自查表</td>
+								<td>2016-09-09</td>
+								<td>张三</td>
+								<td>法规科</td>
+								<td>
+									<a href="javascript:;">修改</a>
+									<a href="javascript:;">删除</a>
+								</td>
+							</tr>
+							<tr>
+								<td style="display: none"><input class="item-checkbox" type="checkbox"></td>
+								<td>7</td>
+								<td>XX自查表</td>
+								<td>2016-09-09</td>
+								<td>张三</td>
+								<td>法规科</td>
+								<td>
+									<a href="javascript:;">修改</a>
+									<a href="javascript:;">删除</a>
+								</td>
+							</tr>
+							<tr>
+								<td style="display: none"><input class="item-checkbox" type="checkbox"></td>
+								<td>8</td>
+								<td>XX自查表</td>
+								<td>2016-09-09</td>
+								<td>张三</td>
+								<td>法规科</td>
+								<td>
+									<a href="javascript:;">修改</a>
+									<a href="javascript:;">删除</a>
+								</td>
+							</tr>
+							<tr>
+								<td style="display: none"><input class="item-checkbox" type="checkbox"></td>
+								<td>9</td>
+								<td>XX自查表</td>
+								<td>2016-09-09</td>
+								<td>张三</td>
+								<td>法规科</td>
+								<td>
+									<a href="javascript:;">修改</a>
+									<a href="javascript:;">删除</a>
+								</td>
+							</tr>
+							<tr>
+								<td style="display: none"><input class="item-checkbox" type="checkbox"></td>
+								<td>10</td>
+								<td>XX自查表</td>
+								<td>2016-09-09</td>
+								<td>张三</td>
+								<td>法规科</td>
+								<td>
+									<a href="javascript:;">修改</a>
+									<a href="javascript:;">删除</a>
+								</td>
+							</tr>
+							
+						</table>
+						<div class="page-box">
+							<span style="float:left" class="pagination">共1500条记录</span>
+							<ul class="pagination" style="float: right;">
+								<li class="previous"><a href="#"><<</a></li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li class="next"><a href="#">>></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.content-wrapper -->
+			<footer class="main-footer">
+				<div class="pull-right hidden-xs">
+					<b>Version</b> 2.3.3
+				</div>
+				<strong>Copyright &copy; 2015-2016 <a href="http://landfalcon.com">上海陆鹰实业有限公司</a>.</strong> All rights reserved.
+			</footer>
+
+			<!-- Control Sidebar -->
+			<!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+			<div class="control-sidebar-bg"></div>
+		</div>
+
+		<!--新增专题-->
+		<div id="new-item-mask" class="new-item-mask" style="display: none;">
+			<div class="new-item-content">
+			<div class="close-bt">X</div>
+				<table>
+					<tr>
+						<td>专题名称：</td>
+						<td><input type="text" style="width:100%" placeholder="专题名称"></td>
+					</tr>
+					<tr>
+						<td style="padding-top: 20px;text-align: center;" colspan="2"><span class="query-bt-green" id="ok-bt">确定</span>
+						<span class="query-bt-green" id="cancel-bt">取消</span></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!-- ./wrapper -->
+
+		<!-- jQuery 2.2.0 -->
+		<script src="../plugins/jQuery/jQuery-2.2.0.min.js"></script>
+		<!-- jQuery UI 1.11.4 -->
+		<script src="../dist/js/demo.js"></script>
+		<script>
+		// class="item-checkbox"
+		$(document).ready(function(){
+			//批量删除按钮事件
+			$("#batch-delete-bt").click(function(){
+				var bt = $(this);
+				if(bt.text().indexOf("批量删除")>-1){
+					bt.text("删除");
+				}
+				else{
+					var count = $("input:checked:not(#all-select-bt)").length;
+					if(count>0){
+						confirm("确定删除这"+count+"项吗?");
+					}
+					bt.text("批量删除");
+				} 
+				$("input[type=checkbox]").parent().toggle();
+			});
+			//全选按钮事件
+			$("#all-select-bt").click(function(){
+				if($(this).attr("select")){
+					$(this).removeAttr("select");
+					$(".item-checkbox").removeAttr("checked");
+				}else{
+					$(this).attr("select","select");
+					$(".item-checkbox").attr("checked","checked");
+				}
+			})
+			//添加项目按钮
+			$("#add-new-item").click(function(){
+				location.href = "addNewPersonInfo.html";
+			})
+			$("#ok-bt,#cancel-bt,.close-bt").click(function(){
+				$("#new-item-mask").hide();
+			});
+			//菜单展开 折叠
+			$(".toggle-menu").click(function(){
+				$(this).children(".state").toggleClass("icon-jiantou").toggleClass("icon-jiantou1");
+				$(this).next('.treeview-menu').slideToggle(200);
+			});
+		});
+			
+		</script>
+	</body>
+
+</html>
